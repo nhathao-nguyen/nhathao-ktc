@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #fff;
+}
+
+.progress-bar {
+  margin: 10px 0;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  position: relative;
+  height: 30px;
+  width: 100%;
+}
+
+.progress-bar span {
+  position: absolute;
+  z-index: 1;
+  padding-left: 10px;
+  line-height: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.bar {
+  height: 100%;
+  line-height: 30px;
+  text-align: right;
+  color: white;
+  padding-right: 10px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* Color classes */
+.red {
+  background-color: #e74c3c;
+}
+
+.blue {
+  background-color: #1abc9c;
+}
+
+.green {
+  background-color: #2ecc71;
+}
+
+.yellow {
+  background-color: #f1c40f;
+}
+
+.purple {
+  background-color: #9b59b6;
+}
+
+.pink {
+  background-color: #ff69f4;
+}
+
+.darkblue {
+  background-color: #3498db;
+}
