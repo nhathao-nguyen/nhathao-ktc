@@ -1,0 +1,101 @@
+:root {
+  --followers-color: #f44336;
+  --followings-color: #00bcd4;
+  --messages-color: #4caf50;
+  --likes-color: #ffc107;
+  --comments-color: #9c27b0;
+  --card-bg: #fff;
+  --font-color: #333;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eaeff2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-card {
+  width: 350px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.profile-header {
+  position: relative;
+  height: 200px;
+  background: url("https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/11/tai-hinh-nen-dep-mien-phi.jpg")
+    center/cover no-repeat;
+}
+
+.profile-photo {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%; 
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.profile-info {
+  padding: 120px 20px 120px 120px;
+  text-align: left;
+  
+}
+
+.profile-info h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.profile-info p {
+  margin: 5px 0 0;
+  color: #fff;
+  font-size: 13px;
+}
+
+.profile-stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid #eee;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.stat-value {
+  padding: 3px 10px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.followers .stat-value {
+  background: var(--followers-color);
+}
+.followings .stat-value {
+  background: var(--followings-color);
+}
+.messages .stat-value {
+  background: var(--messages-color);
+}
+.likes .stat-value {
+  background: var(--likes-color);
+}
+.comments .stat-value {
+  background: var(--comments-color);
+}

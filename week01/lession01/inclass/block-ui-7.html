@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block UI 7</title>
+    <link rel="stylesheet" href="block-ui-7.css" />
+  </head>
+  <body>
+    <div class="process-container">
+      <div class="process-step">
+        <div class="circle idea">
+          <span class="icon">💡</span>
+        </div>
+        <div class="step-label">Idea</div>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step">
+        <div class="circle prototype">
+          <span class="icon">🖥️</span>
+        </div>
+        <div class="step-label">Prototype</div>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step">
+        <div class="circle coding">
+          <span class="icon">&lt;/&gt;</span>
+        </div>
+        <div class="step-label">Coding</div>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step">
+        <div class="circle testing">
+          <span class="icon">✓</span>
+        </div>
+        <div class="step-label">Testing</div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".circle").forEach((circle, index) => {
+        circle.addEventListener("click", function () {
+          const steps = ["Idea", "Prototype", "Coding", "Testing"];
+          console.log(`Step ${index + 1}: ${steps[index]} clicked`);
+
+          // Add a pulse animation
+          this.style.animation = "pulse 0.6s ease";
+          setTimeout(() => {
+            this.style.animation = "";
+          }, 600);
+        });
+      });
+
+      // Add CSS for pulse animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.15); }
+                100% { transform: scale(1); }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>

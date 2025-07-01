@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block UI 8</title>
+    <link rel="stylesheet" href="block-ui-8.css" />
+  </head>
+  <body>
+    <div class="skills-container">
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-icon html-icon">HTML</div>
+          <div class="skill-name">HTML</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill html-progress" data-width="85"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-icon css-icon">CSS</div>
+          <div class="skill-name">CSS</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill css-progress" data-width="70"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-icon php-icon">PHP</div>
+          <div class="skill-name">PHP</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill php-progress" data-width="45"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-icon java-icon">JAVA</div>
+          <div class="skill-name">Java</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill java-progress" data-width="80"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-icon net-icon">.NET</div>
+          <div class="skill-name">.Net</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill net-progress" data-width="55"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Animate progress bars on load
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          const progressBars = document.querySelectorAll(".progress-fill");
+          progressBars.forEach((bar) => {
+            const width = bar.getAttribute("data-width");
+            bar.style.width = width + "%";
+          });
+        }, 800);
+      });
+
+      // Add click interaction
+      document.querySelectorAll(".skill-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          const skillName = this.querySelector(".skill-name").textContent;
+          const progressBar = this.querySelector(".progress-fill");
+          const width = progressBar.getAttribute("data-width");
+
+          console.log(`${skillName}: ${width}% proficiency`);
+
+          // Add a flash effect
+          this.style.background = "rgba(54, 209, 220, 0.1)";
+          setTimeout(() => {
+            this.style.background = "transparent";
+          }, 300);
+        });
+      });
+    </script>
+  </body>
+</html>

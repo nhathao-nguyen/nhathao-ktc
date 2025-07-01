@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.skills-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.skills-title {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.skill-item {
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.skill-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.skill-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.skill-item:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.skill-item:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.skill-item:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  margin-right: 15px;
+  font-size: 0.9rem;
+}
+
+.html-icon {
+  background: linear-gradient(135deg, #2ed573, #7bed9f);
+}
+.css-icon {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+.php-icon {
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+.java-icon {
+  background: linear-gradient(135deg, #feca57, #ff9ff3);
+}
+.net-icon {
+  background: linear-gradient(135deg, #a55eea, #fd79a8);
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  transition: width 2s cubic-bezier(0.23, 1, 0.32, 1);
+  background-size: 20px 20px;
+}
+
+.progress-fill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: move 2s linear infinite;
+}
+
+.html-progress {
+  background: linear-gradient(90deg, #2ed573, #7bed9f);
+}
+.css-progress {
+  background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+}
+.php-progress {
+  background: linear-gradient(90deg, #36d1dc, #5b86e5);
+}
+.java-progress {
+  background: linear-gradient(90deg, #feca57, #ff9ff3);
+}
+.net-progress {
+  background: linear-gradient(90deg, #a55eea, #fd79a8);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    padding: 30px 20px;
+  }
+
+  .skills-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .skill-item {
+    margin-bottom: 25px;
+  }
+}

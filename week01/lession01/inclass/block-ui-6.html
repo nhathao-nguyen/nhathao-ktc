@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block UI 6</title>
+    <link rel="stylesheet" href="block-ui-6.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="social-card facebook">
+        <div class="icon">f</div>
+        <div class="platform-name">Facebook</div>
+        <div class="stats">5,00,000 Likes</div>
+      </div>
+
+      <div class="social-card twitter">
+        <div class="icon">🐦</div>
+        <div class="platform-name">Twitter</div>
+        <div class="stats">40,000 Tweets</div>
+      </div>
+
+      <div class="social-card google-plus">
+        <div class="icon">G+</div>
+        <div class="platform-name">Google +</div>
+        <div class="stats">4,60,000 Plus</div>
+      </div>
+
+      <div class="social-card pinterest">
+        <div class="icon">📌</div>
+        <div class="platform-name">Pinterest</div>
+        <div class="stats">34,000 Pins</div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".social-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          const platform = this.querySelector(".platform-name").textContent;
+          console.log(`Opening ${platform}`);
+        });
+      });
+    </script>
+  </body>
+</html>

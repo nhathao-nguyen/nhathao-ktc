@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block UI 5</title>
+    <link rel="stylesheet" href="block-ui-5.css" />
+  </head>
+  <body>
+    <nav class="nav-container">
+      <div class="nav-item home">HOME</div>
+      <div class="nav-item about">ABOUT</div>
+      <div class="nav-item feature">FEATURE</div>
+      <div class="nav-item service">SERVICE</div>
+      <div class="nav-item gallery">GALLERY</div>
+      <div class="nav-item blog">BLOG</div>
+    </nav>
+
+    <script>
+      document.querySelectorAll(".nav-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          console.log(`Navigating to ${this.textContent}`);
+        });
+      });
+    </script>
+  </body>
+</html>
