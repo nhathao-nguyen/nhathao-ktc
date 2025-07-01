@@ -1,0 +1,29 @@
+.box {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  margin-top: 10px;
+  /* background-color: lightblue; */
+}
+
+.highlight {
+  background-color: yellow;
+}
+.error {
+  border: 2px solid red;
+}
+
+.hoverBox {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+  transition: background-color 0.3s;
+}
+.hoverBox:hover {
+  background-color: lightblue;
+}
+
+#charCount {
+  font-size: 0.9em;
+  color: gray;
+}
