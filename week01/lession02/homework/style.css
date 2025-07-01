@@ -1,0 +1,120 @@
+/* Custom scroll for sticky notes container */
+.sticky-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #a3e635 #d1fae5;
+}
+
+.sticky-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.sticky-scroll::-webkit-scrollbar-track {
+    background: #d1fae5;
+    border-radius: 10px;
+}
+
+.sticky-scroll::-webkit-scrollbar-thumb {
+    background-color: #84cc16;
+    border-radius: 10px;
+    border: 2px solid #d1fae5;
+}
+
+/* Animations */
+@keyframes fadeInSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInSlideDown {
+    animation: fadeInSlideDown 0.4s ease forwards;
+}
+
+/* Smooth checkbox check */
+input[type="checkbox"] {
+    accent-color: #22c55e;
+    transition: accent-color 0.25s ease;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+    accent-color: #16a34a;
+}
+
+/* Button press animation */
+button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* Dark mode styles */
+html.dark {
+    background: #03291e;
+    color: #cbd5e1;
+}
+
+html.dark body {
+    background: #000;
+    color: #cbd5e1;
+}
+
+html.dark input,
+html.dark textarea {
+    background-color: #064e3b;
+    border-color: #166534;
+    color: #d1fae5;
+}
+
+html.dark input::placeholder {
+    color: #6ee7b7;
+}
+
+html.dark button {
+    background-color: #059669;
+    color: #d1fae5;
+    border-color: #10b981;
+}
+
+html.dark button:hover {
+    background-color: #10b981;
+}
+
+html.dark .filter-btn {
+    background-color: #064e3b;
+    color: #9ae6b4;
+    border-color: #10b981;
+}
+
+html.dark .filter-btn:hover {
+    background-color: #059669;
+}
+
+html.dark #todo-list li {
+    background-color: #064e3b;
+    color: #9ae6b4;
+}
+
+html.dark #todo-list li.bg-emerald-200 {
+    background-color: #065f46;
+    color: #a7f3d0;
+}
+
+html.dark #sticky-container>div {
+    background-color: #065f46;
+    color: #a7f3d0;
+}
+
+html.dark #sticky-container>div button {
+    background-color: #b91c1c;
+    color: #fde2e1;
+}
+
+html.dark #sticky-container>div button:hover {
+    background-color: #991b1b;
+}

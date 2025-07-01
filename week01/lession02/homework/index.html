@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Animated Dashboard - To-Do & Sticky Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-tr from-slate-50 to-emerald-100 text-slate-900 font-sans select-none antialiased"
+  >
+    <main class="max-w-4xl mx-auto p-6">
+      <header class="flex justify-between items-center mb-8">
+        <h1
+          class="text-3xl font-extrabold tracking-tight animate-fadeInSlideDown"
+        >
+          Dashboard
+        </h1>
+        <div
+          class="space-x-6 text-base font-medium text-slate-700 flex items-center animate-fadeInSlideDown"
+          style="animation-delay: 0.1s"
+        >
+          <time id="clock" class="font-mono tracking-wide"></time>
+          <span id="greeting" class="ml-2"></span>
+          <button
+            id="toggleTheme"
+            aria-label="Toggle dark mode"
+            class="ml-6 w-10 h-10 rounded border border-slate-300 bg-white hover:bg-slate-100 transition-colors flex items-center justify-center shadow-sm"
+          >
+            <svg
+              id="iconSun"
+              class="w-6 h-6 stroke-amber-400 hidden"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg
+              id="iconMoon"
+              class="w-6 h-6 stroke-slate-600"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 21a9 9 0 009-8.21z"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- To-Do List Section -->
+      <section
+        aria-labelledby="todo-title"
+        class="mb-14 animate-fadeInSlideDown"
+        style="animation-delay: 0.2s"
+      >
+        <h2 id="todo-title" class="text-xl font-semibold mb-4">To-Do List</h2>
+        <form id="todo-form" class="flex gap-2 mb-3" aria-label="Add new task">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="Enter a task"
+            class="w-full rounded border border-slate-300 focus:border-emerald-500 focus:ring-emerald-300 focus:ring-4 transition px-4 py-2 text-base"
+            autocomplete="off"
+            aria-required="true"
+          />
+          <button
+            type="submit"
+            class="bg-emerald-500 text-white px-4 rounded shadow hover:bg-emerald-600 transition"
+          >
+            Add Task
+          </button>
+        </form>
+
+        <!-- Filters -->
+        <div class="flex gap-2 mb-4" role="group" aria-label="Task filters">
+          <button
+            type="button"
+            data-filter="all"
+            class="filter-btn bg-white border border-slate-400 px-3 py-1 rounded shadow-md font-medium text-slate-700 hover:bg-emerald-50 focus:outline-emerald-400 focus:ring-2"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            data-filter="completed"
+            class="filter-btn bg-white border border-slate-400 px-3 py-1 rounded shadow-md font-medium text-slate-700 hover:bg-emerald-50 focus:outline-emerald-400 focus:ring-2"
+          >
+            Completed
+          </button>
+          <button
+            type="button"
+            data-filter="incomplete"
+            class="filter-btn bg-white border border-slate-400 px-3 py-1 rounded shadow-md font-medium text-slate-700 hover:bg-emerald-50 focus:outline-emerald-400 focus:ring-2"
+          >
+            Incomplete
+          </button>
+        </div>
+
+        <!-- Tasks List -->
+        <ul
+          id="todo-list"
+          class="space-y-2"
+          aria-live="polite"
+          aria-relevant="additions removals"
+        >
+          <!-- To-Do items go here dynamically -->
+        </ul>
+      </section>
+
+      <!-- Sticky Notes Section -->
+      <section
+        aria-labelledby="sticky-title"
+        class="animate-fadeInSlideDown"
+        style="animation-delay: 0.3s"
+      >
+        <h2 id="sticky-title" class="text-xl font-semibold mb-4">
+          Sticky Notes
+        </h2>
+        <form
+          id="note-form"
+          class="flex gap-2 mb-5"
+          aria-label="Add new sticky note"
+        >
+          <input
+            type="text"
+            id="note-input"
+            placeholder="Write a note..."
+            class="w-full rounded border border-slate-300 focus:border-emerald-500 focus:ring-emerald-300 focus:ring-4 transition px-4 py-2 text-base"
+            autocomplete="off"
+            aria-required="true"
+          />
+          <button
+            type="submit"
+            class="bg-emerald-500 text-white px-4 rounded shadow hover:bg-emerald-600 transition"
+          >
+            Add Note
+          </button>
+        </form>
+
+        <div
+          id="sticky-container"
+          class="flex flex-wrap gap-4 sticky-scroll max-w-full overflow-x-auto"
+        >
+          <!-- Sticky notes appear here dynamically -->
+        </div>
+      </section>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>
