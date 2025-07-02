@@ -1,0 +1,42 @@
+.boxInput {
+    background-color: white;
+    width: 330px;
+    height: 51px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #111;
+    border-radius: 16px;
+    margin-bottom: 27px;
+}
+
+.boxInput:first-child {
+    margin-top: 40px;
+}
+
+.input {
+    width: 90%;
+    height: 90%;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+}
+
+.boldPlaceholder::placeholder {
+    font-weight: bold;
+    color: #111;
+}
+
+.input:focus {
+    outline: none;
+
+}
+
+.label {
+    font-weight: normal;
+    margin-right: 8px;
+}
+
+.boldLabel {
+    font-weight: bold !important;
+}

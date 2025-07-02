@@ -1,0 +1,194 @@
+.weatherList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 56px;
+    position: relative;
+}
+
+.bgLightYellow {
+    background: #f9fbe7;
+}
+
+.bgLightBlue {
+    background: #eaf6ff;
+}
+
+.bgRed {
+    background: linear-gradient(90deg, #ff5e62 0%, #ff9966 100%);
+    color: #fff;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.desc {
+    color: #b0b0b0;
+    font-size: 13px;
+}
+
+.menu {
+    font-size: 22px;
+    color: #888;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.weatherIcon {
+    font-size: 28px;
+    margin-left: auto;
+}
+
+.scheduleIcon {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.playIcon {
+    font-size: 22px;
+    color: #3bb77e;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.weatherWeek {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    gap: 2px;
+}
+
+.seattleLeft {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.seattleTitle {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.seattleDesc {
+    font-size: 14px;
+}
+
+.seattleTemp {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 16px;
+}
+
+.seattleIcon {
+    font-size: 32px;
+    margin-left: auto;
+}
+
+.scheduleHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.weatherWeekSmall {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.daySmall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    gap: 2px;
+}
+
+.time {
+    color: #b0b0b0;
+    font-size: 11px;
+}
+
+.calendarRow {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.calendarDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f6fa;
+    border-radius: 12px;
+    padding: 8px 12px;
+    min-width: 48px;
+}
+
+.month {
+    color: #b0b0b0;
+    font-size: 13px;
+}
+
+.day {
+    font-weight: 700;
+    font-size: 18px;
+    color: #ff5e62;
+}
+
+.calendarInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.calendarWeekday {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.calendarTime {
+    color: #b0b0b0;
+    font-size: 13px;
+}

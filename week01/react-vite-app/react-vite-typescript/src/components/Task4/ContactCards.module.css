@@ -1,0 +1,68 @@
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.contactCard {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 60px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffe066;
+}
+
+.avatarLarge {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.role {
+    color: #b0b0b0;
+    font-size: 13px;
+}
+
+.iconCamera {
+    font-size: 22px;
+    color: #888;
+    margin-left: auto;
+}
+
+.infoLarge {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.iconPhone {
+    font-size: 24px;
+    color: #222;
+    margin-left: auto;
+}

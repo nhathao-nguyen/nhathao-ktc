@@ -1,0 +1,99 @@
+.promoNotifyList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.promoCard {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 18px 20px 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+}
+
+.promoHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    background: #222;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.promoTitle {
+    font-weight: 700;
+    font-size: 17px;
+    flex: 1;
+}
+
+.promoAmount {
+    font-weight: 600;
+    font-size: 15px;
+    color: #222;
+}
+
+.promoSub {
+    color: #b0b0b0;
+    font-size: 13px;
+    margin-left: 42px;
+}
+
+.promoTime {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+
+.notifyCard {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.notifyText {
+    font-weight: 600;
+    font-size: 14px;
+    color: #222;
+}
+
+.notifyRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bell {
+    font-size: 20px;
+    color: #222;
+}
+
+.notifyCount {
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+}

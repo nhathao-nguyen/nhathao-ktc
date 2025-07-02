@@ -1,0 +1,90 @@
+/* Reset & base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #dde4e8;
+    min-height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+}
+
+/* App container responsive */
+.app-main-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (min-width: 700px) {
+    .app-main-container {
+        flex-direction: row;
+        gap: 24px;
+        padding: 0 16px;
+    }
+}
+
+/* Section responsive override */
+.section {
+    min-width: 0 !important;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 18px auto;
+    padding: 12px 8px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 700px) {
+    .section {
+        min-width: 340px !important;
+        max-width: 400px;
+        margin-bottom: 24px;
+        padding: 16px;
+    }
+}
+
+/* Card responsive (áp dụng cho các module card) */
+.card,
+.contactCard,
+.teamCard {
+    border-radius: 14px;
+    padding: 14px 10px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 700px) {
+
+    .card,
+    .contactCard,
+    .teamCard {
+        border-radius: 18px;
+        padding: 18px 20px;
+        margin-bottom: 18px;
+    }
+}
+
+/* Font-size responsive */
+html {
+    font-size: 15px;
+}
+
+@media (min-width: 700px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1100px) {
+    html {
+        font-size: 17px;
+    }
+}
