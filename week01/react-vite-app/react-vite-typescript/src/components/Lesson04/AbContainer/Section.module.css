@@ -1,0 +1,13 @@
+.section {
+    min-height: 0;
+    /* background-color: white; */
+    min-width: 1200px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    flex-wrap: wrap;
+}

@@ -10,7 +10,10 @@ import { WeatherCards } from "./components/Lesson03/Task7/WeatherCards";
 import type { FootballProps } from "./components/Lesson03/Task3/Football";
 import type { Contact } from "./components/Lesson03/Task4/ContactCards";
 import type { Team } from "./components/Lesson03/Task5/TeamsCards";
-import type { Promo, Notify } from "./components/Lesson03/Task6/PromoNotifyCards";
+import type {
+  Promo,
+  Notify,
+} from "./components/Lesson03/Task6/PromoNotifyCards";
 import type { WeatherCardType } from "./components/Lesson03/Task7/WeatherCards";
 
 import { Search, Menu, Settings2, Phone } from "lucide-react";

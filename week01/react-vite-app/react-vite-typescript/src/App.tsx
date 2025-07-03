@@ -1,70 +1,56 @@
-import AccessoryList from "./components/Lesson04/AccessoryList/index";
-import ArticlesList from "./components/Lesson04/ArticalRenderList";
-import styles from "./components/Lesson04/ArticalRenderList/ArticlesList.module.css";
+import Section from "./components/Lesson04/AbContainer/Section";
+import State01 from "./components/Lesson04/State01/State01";
+import Rate from "./components/Lesson04/Rate/Rate";
+import { SlideWithThumb } from "./components/Lesson04/SlideWithThumb/SlideWithThumb";
+import TabsButton from "./components/Lesson04/TabButtons/TabsButton";
 
-const accessory = [
-  {
-    id: 1,
-    title: "Combo Sữa Tắm Cho Em Bé Arau Baby 450mlabc",
-    thumbnail: "images/1.jpg",
-    addPrice: "400",
-  },
-  {
-    id: 2,
-    title: "Sữa bột Pediasure 850g",
-    thumbnail: "images/2.jpg",
-    addPrice: "400",
-  },
-  {
-    id: 3,
-    title: "Sữa Bột Friso Gold 1 900g",
-    thumbnail: "images/3.jpg",
-    addPrice: "400",
-  },
-  {
-    id: 4,
-    title: "Tã Quần Pampers Giữ Dáng Mới Gói Cực Đại M74",
-    thumbnail: "images/4.jpg",
-    addPrice: "400",
-  },
+const imgSlideWithThumb = [
+  "https://picsum.photos/id/1015/600/400",
+  "https://picsum.photos/id/1016/600/400",
+  "https://picsum.photos/id/1018/600/400",
+  "https://picsum.photos/id/1019/600/400",
 ];
 
-const articles = [
+const tabData = [
   {
-    id: 1,
-    thumbnail: "images/1.jpg",
-    title: "Ấn tượng đầu tiên Samsung Galaxy A32 4G: Với hơn 6 triệu đã có màn hình Super AMOLED 90Hz",
-    addTime: "140 lượt xem",
+    label: "HISTORY",
+    content:
+      "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit...",
   },
   {
-    id: 2,
-    thumbnail: "images/2.jpg",
-    title: "Google Pixel 5a dự kiến sẽ được ra mắt cùng thời điểm với Android 12",
-    addTime: "127 lượt xem",
+    label: "APPROACH",
+    content:
+      "Approach content: omnis voluptas assumenda est, omnis dolor repellendus...",
   },
   {
-    id: 3,
-    thumbnail: "images/3.jpg",
-    title: "Galaxy A52 4G lộ diện trên Google Play Console Xác nhận dùng chip Snapdragon 720",
-    addTime: "55 lượt xem",
+    label: "CULTURE",
+    content:
+      "Culture content: temporibus autem quibusdam et aut officiis debitis aut rerum...",
   },
   {
-    id: 4,
-    thumbnail: "images/4.jpg",
-    title: "Galaxy A82 5G chuẩn bị ra mắt với chip flagship và màn hình trượt độc đáo, Samfans gom lúa đi là vừa",
-    addTime: "55 lượt xem",
+    label: "METHOD",
+    content:
+      "Method content: saepe eveniet ut et voluptates repudiandae sint et molestiae...",
   },
 ];
 
 function App() {
   return (
-    <div style={{ minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "flex-start", padding: "40px 0" }}>
-      <div className={styles.articles_list_wrapper}>
-        <h2 style={{ margin: "0 0 24px 0", fontWeight: 700 }}>Phụ kiện tương thích</h2>
-        <AccessoryList data={accessory} />
-        <h2 style={{ margin: "32px 0 24px 0", fontWeight: 700 }}>TIN MỚI</h2>
-        <ArticlesList data={articles} />
-      </div>
+    <div className={"bg-white"}>
+      <Section>
+        <State01 />
+      </Section>
+      <Section>
+        <Rate />
+      </Section>
+      <Section>
+        <h1 className="text-2xl font-bold mb-6 text-left">Slide with thumb</h1>
+        <SlideWithThumb images={imgSlideWithThumb} />
+      </Section>
+      <Section>
+        <h1 className="text-2xl font-bold mb-6 text-left">Button Tabs</h1>
+        <TabsButton tabs={tabData} />
+      </Section>
     </div>
   );
 }
