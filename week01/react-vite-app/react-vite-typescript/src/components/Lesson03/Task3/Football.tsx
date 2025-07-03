@@ -29,7 +29,12 @@ export type FootballProps = {
   };
 };
 
-export const Football = ({ match, club, cardInfo, dashboard }: FootballProps) => {
+export const Football = ({
+  match,
+  club,
+  cardInfo,
+  dashboard,
+}: FootballProps) => {
   return (
     <div className={FootballStyle.cardList}>
       {/* Match Card */}
@@ -40,11 +45,13 @@ export const Football = ({ match, club, cardInfo, dashboard }: FootballProps) =>
         </div>
         <div className={FootballStyle.matchInfo}>
           <span className={FootballStyle.team}>
-            {match.team1} <span className={FootballStyle.flag}>{match.flag1}</span>
+            {match.team1}{" "}
+            <span className={FootballStyle.flag}>{match.flag1}</span>
           </span>
           <span className={FootballStyle.score}>{match.score}</span>
           <span className={FootballStyle.team}>
-            <span className={FootballStyle.flag}>{match.flag2}</span> {match.team2}
+            <span className={FootballStyle.flag}>{match.flag2}</span>{" "}
+            {match.team2}
           </span>
         </div>
       </div>
@@ -70,10 +77,14 @@ export const Football = ({ match, club, cardInfo, dashboard }: FootballProps) =>
             <div className={FootballStyle.cardName}>{cardInfo.name}</div>
             <div className={FootballStyle.cardTypeRow}>
               <span className={FootballStyle.cardType}>{cardInfo.type}</span>
-              <span className={FootballStyle.cardNumber}>{cardInfo.number}</span>
+              <span className={FootballStyle.cardNumber}>
+                {cardInfo.number}
+              </span>
             </div>
           </div>
-          <span className={FootballStyle.eyeIcon}>{cardInfo.eyeIcon || "👁️‍🗨️"}</span>
+          <span className={FootballStyle.eyeIcon}>
+            {cardInfo.eyeIcon || "👁️‍🗨️"}
+          </span>
         </div>
       </div>
 
@@ -81,10 +92,14 @@ export const Football = ({ match, club, cardInfo, dashboard }: FootballProps) =>
       <div className={FootballStyle.card}>
         <div className={FootballStyle.dashboardHeader}>
           {dashboard.highlights.map((h, i) => (
-            <span key={i} className={FootballStyle.highlight}>{h}</span>
+            <span key={i} className={FootballStyle.highlight}>
+              {h}
+            </span>
           ))}
           {dashboard.feeds.map((f, i) => (
-            <span key={i} className={FootballStyle.feeds}>{f}</span>
+            <span key={i} className={FootballStyle.feeds}>
+              {f}
+            </span>
           ))}
           <span className={FootballStyle.menu}>•••</span>
         </div>
@@ -92,9 +107,13 @@ export const Football = ({ match, club, cardInfo, dashboard }: FootballProps) =>
           <div className={FootballStyle.dashboardTitle}>{dashboard.title}</div>
           <div className={FootballStyle.dashboardDesc}>{dashboard.desc}</div>
           <div className={FootballStyle.progressBarBg}>
-            <div className={FootballStyle.progressBarFill} style={{ width: `${dashboard.percent}%` }}></div>
+            <div
+              className={FootballStyle.progressBarFill}
+              style={{ width: `${dashboard.percent}%` }}></div>
           </div>
-          <div className={FootballStyle.progressPercent}>{dashboard.percent}%</div>
+          <div className={FootballStyle.progressPercent}>
+            {dashboard.percent}%
+          </div>
         </div>
       </div>
     </div>

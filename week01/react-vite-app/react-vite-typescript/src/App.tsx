@@ -1,237 +1,70 @@
-import Button from "./components/Button/Button";
-import Input from "./components/Input/Input";
-import { Apple, Youtube, Facebook, ArrowRight } from "lucide-react";
-import Section from "./components/Group/SectionComponents";
-import { Football } from "./components/Task3/Football";
-import { ContactCards } from "./components/Task4/ContactCards";
-import { TeamsCards } from "./components/Task5/TeamsCards";
-import { PromoNotifyCards } from "./components/Task6/PromoNotifyCards";
-import { WeatherCards } from "./components/Task7/WeatherCards";
-import type { FootballProps } from "./components/Task3/Football";
-import type { Contact } from "./components/Task4/ContactCards";
-import type { Team } from "./components/Task5/TeamsCards";
-import type { Promo, Notify } from "./components/Task6/PromoNotifyCards";
-import type { WeatherCardType } from "./components/Task7/WeatherCards";
+import AccessoryList from "./components/Lesson04/AccessoryList/index";
+import ArticlesList from "./components/Lesson04/ArticalRenderList";
+import styles from "./components/Lesson04/ArticalRenderList/ArticlesList.module.css";
 
-import { Search, Menu, Settings2, Phone } from "lucide-react";
-
-const footballData: FootballProps = {
-  match: {
-    time: "7'",
-    team1: "Spain",
-    flag1: "🇪🇸",
-    score: "0 : 0",
-    team2: "France",
-    flag2: "🇫🇷",
-  },
-  club: {
-    logo: "🟠",
-    name: "Manchester United",
-  },
-  cardInfo: {
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-    name: "Wade Warren",
-    type: "VISA",
-    number: "4293 3242 ....",
-    eyeIcon: "👁️‍🗨️",
-  },
-  dashboard: {
-    highlights: ["Highlight"],
-    feeds: ["Feeds"],
-    title: "Dashboard",
-    desc: "Business management service",
-    percent: 80,
-  },
-};
-
-const contacts: Contact[] = [
+const accessory = [
   {
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    name: "Yolanda",
-    role: "Web Development",
-    icon: "📷",
-    type: "camera",
+    id: 1,
+    title: "Combo Sữa Tắm Cho Em Bé Arau Baby 450mlabc",
+    thumbnail: "images/1.jpg",
+    addPrice: "400",
   },
   {
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
-    name: "María",
-    icon: "📞",
-    type: "phone",
+    id: 2,
+    title: "Sữa bột Pediasure 850g",
+    thumbnail: "images/2.jpg",
+    addPrice: "400",
+  },
+  {
+    id: 3,
+    title: "Sữa Bột Friso Gold 1 900g",
+    thumbnail: "images/3.jpg",
+    addPrice: "400",
+  },
+  {
+    id: 4,
+    title: "Tã Quần Pampers Giữ Dáng Mới Gói Cực Đại M74",
+    thumbnail: "images/4.jpg",
+    addPrice: "400",
   },
 ];
 
-const teams: Team[] = [
+const articles = [
   {
-    avatars: ["https://randomuser.me/api/portraits/women/44.jpg"],
-    name: "Miriam Jimenez",
-    bg: "bgCyan",
+    id: 1,
+    thumbnail: "images/1.jpg",
+    title: "Ấn tượng đầu tiên Samsung Galaxy A32 4G: Với hơn 6 triệu đã có màn hình Super AMOLED 90Hz",
+    addTime: "140 lượt xem",
   },
   {
-    avatars: [
-      "https://randomuser.me/api/portraits/men/32.jpg",
-      "https://randomuser.me/api/portraits/women/65.jpg",
-    ],
-    name: "Teams",
-    desc: "Two currently",
-    bg: "bgPurple",
-    nameStyle: "teamTitle",
-    descStyle: "teamDesc",
+    id: 2,
+    thumbnail: "images/2.jpg",
+    title: "Google Pixel 5a dự kiến sẽ được ra mắt cùng thời điểm với Android 12",
+    addTime: "127 lượt xem",
   },
   {
-    avatars: [
-      "https://randomuser.me/api/portraits/men/45.jpg",
-      "https://randomuser.me/api/portraits/women/66.jpg",
-    ],
-    name: "New Teams",
-    bg: "bgYellow",
-    nameStyle: "teamTitleBlack",
-  },
-];
-
-const promos: Promo[] = [
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
-    title: "Nike store",
-    amount: "-27.50",
-    sub: "6 months of promotions",
-    time: "11:00AM",
-  },
-];
-const notifies: Notify[] = [
-  {
-    text: "All your notifications are well turned on",
-    icon: "🔔",
-    count: 3,
-  },
-];
-
-const weatherCards: WeatherCardType[] = [
-  {
-    type: "landscape",
-    avatar:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=64&h=64",
-    title: "Landscape",
-    desc: "423Km",
-    menu: true,
-    bg: "bgLightYellow",
+    id: 3,
+    thumbnail: "images/3.jpg",
+    title: "Galaxy A52 4G lộ diện trên Google Play Console Xác nhận dùng chip Snapdragon 720",
+    addTime: "55 lượt xem",
   },
   {
-    type: "mountain",
-    avatar:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=64&h=64",
-    title: "Falset Mountains",
-    desc: "423Km, 3 Week",
-    icon: "🌤️",
-  },
-  {
-    type: "schedule",
-    icon: "🌟",
-    title: "Great day to schedule",
-    desc: "Lorem ipsum dolor sitamet.",
-    play: true,
-    bg: "bgLightBlue",
-  },
-  {
-    type: "weatherWeek",
-    days: [
-      { icon: "🌧️", label: "Mon" },
-      { icon: "⛅", label: "Tue" },
-      { icon: "☀️", label: "Wed" },
-      { icon: "⛅", label: "Thu" },
-      { icon: "🌦️", label: "Fri" },
-    ],
-  },
-  {
-    type: "seattle",
-    title: "Seatle",
-    desc: "Cloudy",
-    temp: "32°",
-    icon: "⛅",
-    bg: "bgRed",
-  },
-  {
-    type: "scheduleWeek",
-    title: "Great day to schedule",
-    desc: "Your usual hours",
-    menu: true,
-    days: [
-      { icon: "🌧️", label: "Mon", time: "02:27 PM" },
-      { icon: "⛅", label: "Tue", time: "09:00 AM" },
-      { icon: "☀️", label: "Wed", time: "07:30 PM" },
-      { icon: "⛅", label: "Thu", time: "12:00 PM" },
-      { icon: "🌦️", label: "Fri", time: "06:00 PM" },
-    ],
-  },
-  {
-    type: "calendar",
-    month: "Jun",
-    day: "23",
-    weekday: "Wednesday",
-    time: "08:00 PM - 18:30 PM",
+    id: 4,
+    thumbnail: "images/4.jpg",
+    title: "Galaxy A82 5G chuẩn bị ra mắt với chip flagship và màn hình trượt độc đáo, Samfans gom lúa đi là vừa",
+    addTime: "55 lượt xem",
   },
 ];
 
 function App() {
   return (
-    <div className="app-main-container">
-      {/* Task 1 */}
-      <Section>
-        <Button type={"primary"} label={"Started"} rightIcon={<ArrowRight />} />
-        <Button type={"primary"} leftIcon={<Youtube />} label={"Youtube"} />
-        <Button type={"outline"} leftIcon={<Facebook />} label={"Facebook"} />
-        <Button type={"outline"} leftIcon={<Apple />} label={"Apple"} />
-      </Section>
-
-      {/* Task 2 */}
-      <Section>
-        <Input leftIcon={<Search />} placeholder={""} />
-        <Input leftIcon={<Search />} placeholder={"Search"} />
-        <Input leftIcon={<Search />} placeholder={"Textfield"} type="bold" />
-        <Input
-          leftIcon={<Search />}
-          placeholder={"Search in web"}
-          rightIcon={<Menu />}
-        />
-        <Input
-          leftIcon={<Search />}
-          placeholder={"Search Crypto"}
-          rightIcon={<Settings2 />}
-        />
-        <Input
-          leftIcon={"   "}
-          placeholder={"Phone Number"}
-          rightIcon={<Phone />}
-        />
-        <Input
-          leftIcon={<Search />}
-          placeholder={"Search in the web"}
-          rightIcon={<Menu />}
-        />
-      </Section>
-
-      {/* Task 3 */}
-      <Section>
-        <Football {...footballData} />
-      </Section>
-
-      {/* Task 4 */}
-      <Section>
-        <ContactCards contacts={contacts} />
-      </Section>
-
-      {/* Task 5 */}
-      <Section>
-        <TeamsCards teams={teams} />
-      </Section>
-
-      {/* Task 6 */}
-      <Section>
-        <PromoNotifyCards promos={promos} notifies={notifies} />
-      </Section>
-      {/* Task 7 */}
-      <Section>
-        <WeatherCards cards={weatherCards} />
-      </Section>
+    <div style={{ minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "flex-start", padding: "40px 0" }}>
+      <div className={styles.articles_list_wrapper}>
+        <h2 style={{ margin: "0 0 24px 0", fontWeight: 700 }}>Phụ kiện tương thích</h2>
+        <AccessoryList data={accessory} />
+        <h2 style={{ margin: "32px 0 24px 0", fontWeight: 700 }}>TIN MỚI</h2>
+        <ArticlesList data={articles} />
+      </div>
     </div>
   );
 }

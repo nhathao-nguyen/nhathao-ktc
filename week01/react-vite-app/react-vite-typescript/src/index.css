@@ -1,7 +1,9 @@
 /* Reset & base */
+@import "tailwindcss";
+
 body {
     margin: 0;
-    padding: 0;
+    padding-top: 30px;
     font-family: 'Inter', Arial, sans-serif;
     background: #dde4e8;
     min-height: 100vh;
@@ -18,7 +20,7 @@ body {
 /* App container responsive */
 .app-main-container {
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     padding: 0 4px;
     display: flex;
     flex-direction: column;
