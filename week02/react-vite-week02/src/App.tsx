@@ -1,26 +1,34 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import BlogPage from "./pages/BlogPage";
-import CategoryPage from "./pages/CategoryPage";
-import ProductPage from "./pages/ProductPage";
-import LoginPage from "./pages/LoginPage";
-import CustomerPage from "./pages/CustomerPage";
-import Navbar from "./lession07/NavBar";
+import DepartmentsPage from "./Lession7page/DepartmentsPage";
+import DoctorsPage from "./Lession7page/DoctorsPage";
+import HistoryPage from "./Lession7page/HistoryPage";
+import MapPage from "./Lession7page/MapPage";
+import OverviewPage from "./Lession7page/OverviewPage";
+import PatientsPage from "./Lession7page/PatientsPage";
+import SettingsPage from "./Lession7page/SettingsPage";
+import Sidebar from "./Lession7Homework/Sidebar";
+import Topbar from "./Lession7Homework/Topbar";
 
 function App() {
   return (
     <Router>
-      <div className="bg-orange-500">
-        <Navbar />
+      <div className="flex h-screen">
+        <Sidebar />
+        <div className="flex flex-col flex-1">
+          <Topbar />
+          <main className="flex-1 p-6 overflow-y-auto bg-white">
+            <Routes>
+              <Route path="/" element={<PatientsPage />} />
+              <Route path="/overview" element={<OverviewPage />} />
+              <Route path="/map" element={<MapPage />} />
+              <Route path="/departments" element={<DepartmentsPage />} />
+              <Route path="/doctors" element={<DoctorsPage />} />
+              <Route path="/history" element={<HistoryPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/category" element={<CategoryPage />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/customer" element={<CustomerPage />} />
-      </Routes>
     </Router>
   );
 }
