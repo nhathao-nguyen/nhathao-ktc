@@ -2,6 +2,11 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface FormData {
+  email: string;
+  password: string;
+}
+
 const HomePage = () => {
   const navigate = useNavigate();
   const {
@@ -9,7 +14,7 @@ const HomePage = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormData>({ mode: "onChange" });
 
   const watchedEmail = watch("email");
 
@@ -29,6 +34,12 @@ const HomePage = () => {
         backgroundImage: "url('/images/bg-home.png')",
       }}
     >
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-4 left-4 z-20  bg-opacity-80 rounded-full px-3 py-1 text-white shadow hover:bg-opacity-100"
+      >
+        ← Back
+      </button>
       <div className="absolute inset-0 bg-black opacity-40" />
       <div className="relative z-10 backdrop-blur-xs p-8 rounded-lg w-96 text-white">
         <h1 className="text-3xl font-bold mb-6">Hi!</h1>
@@ -71,7 +82,7 @@ const HomePage = () => {
         </button>
 
         <p className="text-center mt-4 text-sm">
-          Don’t have an account?{" "}
+          Don't have an account?{" "}
           <a href="/signup" className="text-green-400 underline">
             Sign up
           </a>
