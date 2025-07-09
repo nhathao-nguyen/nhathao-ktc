@@ -1,30 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DepartmentsPage from "./Lession7page/DepartmentsPage";
-import DoctorsPage from "./Lession7page/DoctorsPage";
-import HistoryPage from "./Lession7page/HistoryPage";
-import MapPage from "./Lession7page/MapPage";
-import OverviewPage from "./Lession7page/OverviewPage";
-import PatientsPage from "./Lession7page/PatientsPage";
-import SettingsPage from "./Lession7page/SettingsPage";
-import Sidebar from "./Lession7Homework/Sidebar";
-import Topbar from "./Lession7Homework/Topbar";
+import HomePage from "./Lession08Afternoon/HomePage";
+import SignUpPage from "./Lession08Afternoon/SignUpPage";
+import Login from "./Lession08Afternoon/LoginPage";
 
 function App() {
   return (
     <Router>
-      <div className="flex h-screen">
-        <Sidebar />
-        <div className="flex flex-col flex-1">
-          <Topbar />
-          <main className="flex-1 p-6 overflow-y-auto bg-white">
+      <div className="">
+        <div className="">
+          <main className="">
             <Routes>
-              <Route path="/" element={<PatientsPage />} />
-              <Route path="/overview" element={<OverviewPage />} />
-              <Route path="/map" element={<MapPage />} />
-              <Route path="/departments" element={<DepartmentsPage />} />
-              <Route path="/doctors" element={<DoctorsPage />} />
-              <Route path="/history" element={<HistoryPage />} />
-              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </main>
         </div>
