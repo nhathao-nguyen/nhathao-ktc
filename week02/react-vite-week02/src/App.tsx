@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegisterPage from "./Lession08Afternoon/RegisterPage";
 import LoginFormPage from "./Lession08Afternoon/LoginFormPage";
+import HomeworkRegisterForm from "./Lession08Afternoon/HomeworkRegisterForm";
 // import HomePage from "./Lession08Afternoon/HomePage";
 // import SignUpPage from "./Lession08Afternoon/SignUpPage";
 // import Login from "./Lession08Afternoon/LoginPage";
@@ -30,9 +31,15 @@ function App() {
     //   </Routes>
     // </Router>
 
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<LoginFormPage />} />
+    //   </Routes>
+    // </Router>
+
     <Router>
       <Routes>
-        <Route path="/" element={<LoginFormPage />} />
+        <Route path="/" element={<HomeworkRegisterForm />} />
       </Routes>
     </Router>
   );

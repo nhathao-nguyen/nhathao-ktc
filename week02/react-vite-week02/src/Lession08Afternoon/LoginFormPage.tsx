@@ -16,13 +16,11 @@ export default function LoginFormPage() {
 
   const onSubmit = (data: FormData) => {
     if (data.remember) {
-      // Giả lập lưu vào localStorage
       console.log("Remembered user:", data.username);
     }
     alert("Đăng nhập thành công!");
   };
 
-  // Custom validate username: email hoặc số điện thoại, tối thiểu 5 ký tự
   const validateUsername = (v: string) => {
     if (!v) return "Username is required";
     if (v.length < 5) return "Min 5 characters";
@@ -45,7 +43,6 @@ export default function LoginFormPage() {
           </h1>
           <div className="flex flex-row gap-4 mt-8">
             <img src="/images/grovia.png" alt="Main" className="w-64 h-64 rounded-full object-cover shadow-xl" />
-            {/* Có thể thêm các avatar nhỏ nếu muốn */}
           </div>
         </div>
       </div>
