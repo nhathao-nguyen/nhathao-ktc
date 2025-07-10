@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "../contexts/contexts";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,7 +28,7 @@ const schema = yup
 
 export default function LoginPage() {
   const { setUser } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const {
     register,

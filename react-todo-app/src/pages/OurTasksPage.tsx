@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../contexts/contexts";
+import { useEffect, useState } from "react";
 import { getTasks } from "../services";
 import type { Task } from "../types/types";
 import { useNavigate } from "react-router";
 import SearchTasks from "../components/SearchTasks";
 
 export default function OurTasksPage() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -49,7 +48,6 @@ export default function OurTasksPage() {
     <div className="p-6 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">All Tasks</h2>
 
-      {/* Bộ lọc tìm kiếm */}
       <div className="mb-4">
         <SearchTasks onSearch={handleOnSearch} />
       </div>
@@ -89,7 +87,13 @@ export default function OurTasksPage() {
                   </td>
                   <td className="px-4 py-2 border">
                     <button
-                      onClick={() => handleOnEdit(task.id)}
+                      onClick={() => {
+                        if (typeof task.id === "number") {
+                          handleOnEdit(task.id);
+                        } else {
+                          console.warn("task.id is not a number:", task.id);
+                        }
+                      }}
                       className="text-blue-600 hover:underline"
                     >
                       Edit

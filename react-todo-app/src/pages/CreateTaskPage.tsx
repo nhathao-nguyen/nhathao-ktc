@@ -11,7 +11,7 @@ interface IFormInput {
   description?: string;
   status: "to_do" | "in_progress" | "done";
   priority: "low" | "medium" | "high";
-  assignee_id?: string;
+  assignee_id?: number;
 }
 
 // Yup validation schema
@@ -74,7 +74,7 @@ export default function CreateTaskPage() {
       description: "",
       status: "to_do",
       priority: "medium",
-      assignee_id: "",
+      assignee_id: 1,
     },
     mode: "onChange",
   });

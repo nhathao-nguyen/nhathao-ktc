@@ -6,7 +6,7 @@ const AuthContext = createContext<{
   setUser: (user: User | null) => void;
 }>({
   user: null,
-  setUser: (user: User | null) => {},
+  setUser: () => {},
 });
 
 export default AuthContext;
