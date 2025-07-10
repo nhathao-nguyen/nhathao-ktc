@@ -8,6 +8,7 @@ import UpdateTaskPage from "../pages/UpdateTaskPage";
 import AccessDeniedPage from "../pages/AccessDeniedPage";
 import AuthContext from "../contexts/contexts";
 import type { User } from "../types/types";
+import RegisterPage from "../pages/RegisterPage";
 
 export default function TasksManagementGuidelines() {
   const [user, setUser] = useState<User | null>(null);
@@ -85,6 +86,7 @@ export default function TasksManagementGuidelines() {
           <Routes>
             <Route index element={<LoginPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             {user && <Route path="/tasks" element={<OurTasksPage />} />}
             {user && <Route path="/assignee-me" element={<MyTasksPage />} />}
             {user && <Route path="/create-task" element={<CreateTaskPage />} />}

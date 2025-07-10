@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { getTasks } from "../services";
+import { getTasks, deleteTask } from "../services";
 import type { Task } from "../types/types";
 import { useNavigate } from "react-router";
 import SearchTasks from "../components/SearchTasks";
 
 export default function OurTasksPage() {
-  // const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -18,20 +17,34 @@ export default function OurTasksPage() {
   });
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const tasks = await getTasks();
-        setTasks(tasks);
-      } catch (error) {
-        console.error("Error fetching tasks:", error);
-      }
-    };
-
     fetchTasks();
   }, []);
 
+  const fetchTasks = async () => {
+    try {
+      const tasks = await getTasks();
+      setTasks(tasks);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    }
+  };
+
   const handleOnEdit = (taskId: number) => {
     navigate(`/update-task/${taskId}`);
+  };
+
+  const handleDelete = async (taskId: number) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await deleteTask(taskId);
+      setTasks((prev) => prev.filter((task) => task.id !== taskId));
+    } catch (error) {
+      console.error("Failed to delete task:", error);
+    }
   };
 
   const handleOnSearch = (filters: { status?: string; priority?: string }) => {
@@ -86,18 +99,32 @@ export default function OurTasksPage() {
                     {task.assignee_id || "-"}
                   </td>
                   <td className="px-4 py-2 border">
-                    <button
-                      onClick={() => {
-                        if (typeof task.id === "number") {
-                          handleOnEdit(task.id);
-                        } else {
-                          console.warn("task.id is not a number:", task.id);
-                        }
-                      }}
-                      className="text-blue-600 hover:underline"
-                    >
-                      Edit
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => {
+                          if (typeof task.id === "number") {
+                            handleOnEdit(task.id);
+                          } else {
+                            console.warn("Invalid task.id:", task.id);
+                          }
+                        }}
+                        className="px-3 py-1 rounded bg-blue-500 text-white text-sm hover:bg-blue-600 transition"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (typeof task.id === "number") {
+                            handleDelete(task.id);
+                          } else {
+                            console.warn("Invalid task.id:", task.id);
+                          }
+                        }}
+                        className="px-3 py-1 rounded bg-red-500 text-white text-sm hover:bg-red-600 transition"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))

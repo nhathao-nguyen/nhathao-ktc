@@ -55,3 +55,25 @@ export const getTasksByAssignee = async (assigneeId: number) => {
   });
   return response.json();
 };
+
+export const deleteTask = async (id: number) => {
+  const response = await fetch(`${baseUrl}/workspaces/tasks/${id}`, {
+    method: "DELETE",
+    headers: defaultHeaders,
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete task");
+  }
+
+  return response.json();
+};
+
+export const register = async (username: string, password: string, email: string) => {
+  const response = await fetch(`${baseUrl}/auth/register`, {
+    method: 'POST',
+    headers: defaultHeaders,
+    body: JSON.stringify({ username, password, email }),
+  });
+  return response.json();
+};

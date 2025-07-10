@@ -120,6 +120,12 @@ export default function LoginPage() {
             Login
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <span>Don't have an account? </span>
+          <a href="/register" className="text-blue-600 hover:underline">
+            Register
+          </a>
+        </div>
       </div>
     </div>
   );
