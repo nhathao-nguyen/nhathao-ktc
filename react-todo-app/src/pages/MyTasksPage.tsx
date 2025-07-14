@@ -8,7 +8,7 @@ export default function MyTasksPage() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  console.log("MyTasksPage user", user);
+  // console.log("MyTasksPage user", user);
 
   const [tasks, setTasks] = React.useState<Task[]>([]);
 
@@ -26,7 +26,7 @@ export default function MyTasksPage() {
     fetchTasks();
   }, [user]);
 
-  console.log("OurTasksPage user", user);
+  // console.log("OurTasksPage user", user);
 
   const handleOnEdit = (taskId: number) => {
     navigate(`/update-task/${taskId}`);

@@ -78,7 +78,6 @@ export default function CreateTaskPage() {
     },
     mode: "onChange",
   });
-
   const onSubmit: SubmitHandler<IFormInput> = async (data: any) => {
     try {
       await createTask(data);
