@@ -1,8 +1,8 @@
-export default function HomePage() {
+export default function Lession1Page() {
   return (
     <div className="flex justify-center items-center h-screen">
       <h1 className="font-bold uppercase text-xl text-center">
-        Nguyễn Nhật Hào - haonn.21it@vku.udn.vn
+        Home lesson 11
       </h1>
     </div>
   );
