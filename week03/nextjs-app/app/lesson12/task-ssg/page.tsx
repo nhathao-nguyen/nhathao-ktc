@@ -1,6 +1,5 @@
 
-const ACCESS_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNzUyNTY0NTg1LCJleHAiOjE3ODQxMjIxODV9.kSdqppyKSWKyE3Vgmd31YJNZjbMeAbFICRG5EBeCw_w";
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
 
 type Task = {
   id: number;
@@ -28,35 +27,31 @@ export default async function TaskSSG() {
   const tasks = await fetchTasks();
 
   return (
-    <div className="overflow-x-auto bg-white rounded-md shadow p-4">
+    <div className="overflow-x-auto bg-white rounded-md shadow-lg p-4">
       <h1 className="text-2xl font-bold mb-4">SSG Task List (Static)</h1>
-      <table className="min-w-full table-auto border-collapse">
-        <thead className="bg-gray-100 text-left text-sm font-semibold text-gray-700">
-          <tr>
-            <th className="px-4 py-2 border">ID</th>
-            <th className="px-4 py-2 border">Title</th>
-            <th className="px-4 py-2 border">Description</th>
-            <th className="px-4 py-2 border">Status</th>
-            <th className="px-4 py-2 border">Priority</th>
-            <th className="px-4 py-2 border">Due Date</th>
-            <th className="px-4 py-2 border">Assignee</th>
+      <table className="min-w-full table-auto border-separate border-spacing-0 rounded-lg bg-white">
+        <thead>
+          <tr className="bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-t-lg">
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200 rounded-tl-lg">ID</th>
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200">Title</th>
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200">Description</th>
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200">Status</th>
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200">Priority</th>
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200">Due Date</th>
+            <th className="px-6 py-3 text-left font-bold border-b border-gray-200 rounded-tr-lg">Assignee</th>
           </tr>
         </thead>
         <tbody>
           {tasks.length > 0 ? (
-            tasks.map((task) => (
-              <tr key={task.id} className="hover:bg-gray-50 transition">
-                <td className="px-4 py-2 border">{task.id}</td>
-                <td className="px-4 py-2 border">{task.title}</td>
-                <td className="px-4 py-2 border">{task.description}</td>
-                <td className="px-4 py-2 border capitalize">{task.status}</td>
-                <td className="px-4 py-2 border capitalize">{task.priority}</td>
-                <td className="px-4 py-2 border">
-                  {task.due_date
-                    ? new Date(task.due_date).toLocaleDateString()
-                    : "-"}
-                </td>
-                <td className="px-4 py-2 border">{task.assignee_id || "-"}</td>
+            tasks.map((task, idx) => (
+              <tr key={task.id} className={`transition-colors duration-200 ${idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-blue-50`}>
+                <td className="px-6 py-3 border-b border-gray-200">{task.id}</td>
+                <td className="px-6 py-3 border-b border-gray-200">{task.title}</td>
+                <td className="px-6 py-3 border-b border-gray-200">{task.description}</td>
+                <td className="px-6 py-3 border-b border-gray-200 capitalize">{task.status}</td>
+                <td className="px-6 py-3 border-b border-gray-200 capitalize">{task.priority}</td>
+                <td className="px-6 py-3 border-b border-gray-200">{task.due_date ? new Date(task.due_date).toLocaleDateString() : "-"}</td>
+                <td className="px-6 py-3 border-b border-gray-200">{task.assignee_id || "-"}</td>
               </tr>
             ))
           ) : (
