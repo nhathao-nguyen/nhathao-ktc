@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    domains: ["cdnv2.tgdd.vn", "api.escuelajs.co", "placeimg.com"],
+    domains: ["cdnv2.tgdd.vn", "api.escuelajs.co", "placeimg.com", "placehold.co", "pravatar.cc"],
   },
 };
 
