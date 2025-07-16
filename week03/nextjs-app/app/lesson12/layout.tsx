@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
-export default function Lesson11Layout({ children }: { children: ReactNode }) {
+export default function Lesson12Layout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   const links = [
