@@ -5,11 +5,6 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 
-// export const metadata = {
-//   title: "My Next.js App",
-//   description: "Learning Layout",
-// };
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
@@ -18,8 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     { href: "/lesson11", label: "Lesson 11" },
     { href: "/lesson12", label: "Lesson 12" },
     { href: "/lesson13", label: "Lesson 13" },
-    { href: "/lesson14", label: "Lesson 14" },
-    { href: "/lesson15", label: "Lesson 15" },
+    { href: "/lesson14/login", label: "Lesson 14" },
   ];
 
   return (
