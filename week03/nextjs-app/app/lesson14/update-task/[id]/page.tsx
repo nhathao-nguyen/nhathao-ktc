@@ -185,7 +185,7 @@ export default function UpdateTaskPage() {
                 onClick={() => router.push("/lesson14/dashboard")}
                 className="text-blue-600 hover:text-blue-800 mr-4"
               >
-                ← Back to Dashboard
+                ← Back
               </button>
               <h1 className="text-xl font-semibold text-gray-900">
                 Update Task #{taskId}

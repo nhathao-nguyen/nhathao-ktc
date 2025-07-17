@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { jwtDecode } from "jwt-decode";
 
 export interface User {
   id: number;
@@ -33,10 +34,45 @@ interface AuthActions {
 
 type AuthStore = AuthState & AuthActions;
 
+let logoutTimer: ReturnType<typeof setTimeout> | null = null;
+
+function getTokenExp(token: string): number | null {
+  try {
+    const decoded = jwtDecode<{ exp?: number }>(token);
+    if (decoded && decoded.exp) {
+      return decoded.exp * 1000;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function setAutoLogout(token: string, logout: () => void) {
+  if (logoutTimer) clearTimeout(logoutTimer);
+  const exp = getTokenExp(token);
+  if (exp) {
+    const now = Date.now();
+    const timeout = exp - now;
+    if (timeout > 0) {
+      logoutTimer = setTimeout(() => {
+        logout();
+        if (typeof window !== "undefined") {
+          window.location.href = "/lesson14/login";
+        }
+      }, timeout);
+    } else {
+      logout();
+      if (typeof window !== "undefined") {
+        window.location.href = "/lesson14/login";
+      }
+    }
+  }
+}
+
 export const useAuthStore = create<AuthStore>()(
   persist(
     (set, get) => ({
-      // State
       user: null,
       token: null,
       isAuthenticated: false,
@@ -44,14 +80,13 @@ export const useAuthStore = create<AuthStore>()(
       error: null,
       hydrated: false,
 
-      // Actions
       login: (user: User, token: string) => {
         if (!user || !user.role || !token) {
           set({
             user: null,
             token: null,
             isAuthenticated: false,
-            error: 'Invalid login response',
+            error: "Invalid login response",
           });
           if (typeof window !== "undefined") {
             localStorage.removeItem("access_token");
@@ -69,6 +104,7 @@ export const useAuthStore = create<AuthStore>()(
           localStorage.setItem("access_token", token);
           localStorage.setItem("user", JSON.stringify(user));
         }
+        setAutoLogout(token, get().logout);
       },
 
       logout: () => {
@@ -82,9 +118,12 @@ export const useAuthStore = create<AuthStore>()(
           localStorage.removeItem("access_token");
           localStorage.removeItem("user");
         }
+        if (logoutTimer) {
+          clearTimeout(logoutTimer);
+          logoutTimer = null;
+        }
       },
 
-      // Debug: force clear all auth state and localStorage
       forceClearAuth: () => {
         set({
           user: null,
@@ -94,6 +133,10 @@ export const useAuthStore = create<AuthStore>()(
         });
         if (typeof window !== "undefined") {
           localStorage.clear();
+        }
+        if (logoutTimer) {
+          clearTimeout(logoutTimer);
+          logoutTimer = null;
         }
       },
 
@@ -131,13 +174,20 @@ export const useAuthStore = create<AuthStore>()(
           } catch {
             user = null;
           }
-          if (token && token !== "undefined" && token !== "" && user && user.role) {
+          if (
+            token &&
+            token !== "undefined" &&
+            token !== "" &&
+            user &&
+            user.role
+          ) {
             set({
               token,
               isAuthenticated: true,
               user,
               hydrated: true,
             });
+            setAutoLogout(token, get().logout);
           } else {
             set({
               token: null,
@@ -147,6 +197,10 @@ export const useAuthStore = create<AuthStore>()(
             });
             localStorage.removeItem("access_token");
             localStorage.removeItem("user");
+            if (logoutTimer) {
+              clearTimeout(logoutTimer);
+              logoutTimer = null;
+            }
           }
         } else {
           set({ hydrated: true });
